@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileserver
+  namespace: default
+  labels:
+    app: fileserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fileserver
+  template:
+    metadata:
+      labels:
+        app: fileserver
+    spec:
+      containers:
+      - name: fileserver
+        image: nginx:latest
+        imagePullPolicy: Always
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        resources:
+          limits:
+            memory: "1G"
+            cpu: "1.0"
+          requests:
+            memory: "1G"
+            cpu: "1.0"
+        ports:
+        - containerPort: 80
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
