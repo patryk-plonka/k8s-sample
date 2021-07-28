@@ -2,6 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+#######################################################
+## Set Azure environment variables
+#######################################################
+
 export AZ_RESOURCE_GROUP="rgSampleK8s"
 export AZ_LOCATION="westeu"
 

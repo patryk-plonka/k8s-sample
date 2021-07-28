@@ -2,6 +2,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+#######################################################
+## Setup and deploy AKS cluster
+#######################################################
+
 source azure_env.sh
 
 az group create \
